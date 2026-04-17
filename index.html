@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1E3A5F">
+<title>Smith Renovations — Walkthrough Capture</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#f5f6f8;color:#1a1a1a;font-size:16px;line-height:1.45;}
+body{min-height:100vh;padding-bottom:env(safe-area-inset-bottom);}
+.header{background:#1E3A5F;color:#fff;padding:18px 20px;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,0.15);}
+.header h1{margin:0;font-size:20px;font-weight:700;letter-spacing:0.3px;}
+.header p{margin:4px 0 0;font-size:13px;opacity:0.85;}
+.brand-bar{height:3px;background:#C9A961;}
+.container{max-width:640px;margin:0 auto;padding:16px;}
+.card{background:#fff;border-radius:14px;padding:18px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+.section-title{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#6b7280;font-weight:600;margin:0 0 12px;}
+label{display:block;font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:6px;}
+.req{color:#d14545;}
+.hint{font-size:12px;color:#6b7280;margin:4px 0 0;font-weight:400;}
+input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{width:100%;padding:14px 14px;font-size:16px;border:1.5px solid #d1d5db;border-radius:10px;background:#fff;color:#1a1a1a;font-family:inherit;-webkit-appearance:none;appearance:none;}
+select{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7280' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;}
+textarea{min-height:80px;resize:vertical;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#1E3A5F;box-shadow:0 0 0 3px rgba(30,58,95,0.12);}
+.field{margin-bottom:14px;}
+.field:last-child{margin-bottom:0;}
+.file-btn{display:block;width:100%;padding:16px;border:2px dashed #1E3A5F;border-radius:10px;background:#f9fafb;color:#1E3A5F;font-size:15px;font-weight:600;text-align:center;cursor:pointer;transition:background 0.15s;}
+.file-btn:active{background:#eef1f5;}
+.file-btn input{display:none;}
+.file-btn .icon{font-size:22px;display:block;margin-bottom:4px;}
+.file-list{margin-top:10px;}
+.file-item{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#f3f4f6;border-radius:8px;margin-bottom:6px;font-size:13px;}
+.file-item .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-right:8px;}
+.file-item .remove{color:#d14545;background:none;border:none;font-size:18px;padding:0 6px;cursor:pointer;}
+.submit-bar{position:sticky;bottom:0;background:linear-gradient(to top,#f5f6f8 75%,rgba(245,246,248,0));padding:12px 16px calc(12px + env(safe-area-inset-bottom));margin:0 -16px -16px;}
+.btn-submit{display:block;width:100%;padding:18px;background:#1E3A5F;color:#fff;border:none;border-radius:12px;font-size:17px;font-weight:700;letter-spacing:0.3px;cursor:pointer;box-shadow:0 4px 12px rgba(30,58,95,0.25);}
+.btn-submit:disabled{background:#9ca3af;box-shadow:none;}
+.progress{display:none;background:#fff;padding:20px;border-radius:14px;text-align:center;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+.progress.active{display:block;}
+.progress .label{font-size:14px;color:#1E3A5F;font-weight:600;margin-bottom:10px;}
+.progress .bar{height:8px;background:#e5e7eb;border-radius:4px;overflow:hidden;}
+.progress .bar-fill{height:100%;background:#C9A961;width:0%;transition:width 0.3s;}
+.success{display:none;background:#fff;padding:30px 20px;border-radius:14px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.08);}
+.success.active{display:block;}
+.success .check{font-size:52px;color:#16a34a;margin-bottom:10px;}
+.success h2{margin:0 0 8px;font-size:20px;color:#1E3A5F;}
+.success p{color:#6b7280;margin:4px 0;font-size:14px;}
+.error{display:none;background:#fef2f2;color:#991b1b;padding:12px 14px;border-radius:10px;margin-bottom:12px;font-size:14px;border:1px solid #fecaca;}
+.error.active{display:block;}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media (max-width:400px){.row{grid-template-columns:1fr;}}
+.optional-toggle{background:none;border:none;color:#1E3A5F;font-size:14px;font-weight:600;padding:10px 0;cursor:pointer;width:100%;text-align:left;}
+.optional-fields{display:none;}
+.optional-fields.active{display:block;}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Smith Renovations</h1>
+  <p>Walkthrough Capture — Generate Estimate</p>
+</div>
+<div class="brand-bar"></div>
+
+<form id="walkthrough" class="container" novalidate>
+  <div id="error" class="error"></div>
+
+  <div class="card">
+    <p class="section-title">Homeowner Information</p>
+    <div class="field"><label>Full Name <span class="req">*</span></label>
+      <input type="text" name="homeowner_name" required autocomplete="name"></div>
+    <div class="field"><label>Email <span class="req">*</span></label>
+      <input type="email" name="homeowner_email" required autocomplete="email" inputmode="email"></div>
+    <div class="field"><label>Phone <span class="req">*</span></label>
+      <input type="tel" name="homeowner_phone" required autocomplete="tel" inputmode="tel"></div>
+    <div class="field"><label>Property Address <span class="req">*</span></label>
+      <input type="text" name="property_address" required autocomplete="street-address" placeholder="123 Main St, Ridgewood, NJ 07450"></div>
+  </div>
+
+  <div class="card">
+    <p class="section-title">Project</p>
+    <div class="field"><label>Project Type <span class="req">*</span></label>
+      <select name="project_type" required>
+        <option value="">Select…</option>
+        <option>Kitchen Remodel</option>
+        <option>Bathroom Remodel</option>
+        <option>Basement Finish</option>
+        <option>Deck / Patio</option>
+        <option>Roofing</option>
+        <option>Addition</option>
+        <option>Other</option>
+      </select></div>
+  </div>
+
+  <div class="card">
+    <p class="section-title">Voice Memo — Scope Description</p>
+    <label class="file-btn" id="voice-label">
+      <span class="icon">🎤</span>
+      <span id="voice-text">Record or upload voice memo</span>
+      <input type="file" name="voice_memo" accept="audio/*" capture>
+    </label>
+    <p class="hint">Tap and describe: rooms, measurements, materials, special requirements.</p>
+    <div id="voice-list" class="file-list"></div>
+  </div>
+
+  <div class="card">
+    <p class="section-title">Before Photos</p>
+    <label class="file-btn" id="photo-label">
+      <span class="icon">📷</span>
+      <span id="photo-text">Add photos of work area</span>
+      <input type="file" name="photos" accept="image/*" multiple capture="environment">
+    </label>
+    <p class="hint">Take multiple shots. Include any visible measurements or damage.</p>
+    <div id="photo-list" class="file-list"></div>
+  </div>
+
+  <button type="button" class="optional-toggle" id="toggle-optional">▸ Optional details (start date, budget, referral)</button>
+  <div class="card optional-fields" id="optional-fields">
+    <div class="field"><label>Desired Start Date</label>
+      <input type="date" name="desired_start_date"></div>
+    <div class="field"><label>Budget Range</label>
+      <select name="budget_range">
+        <option value="">No preference</option>
+        <option>Under $10k</option>
+        <option>$10k–$25k</option>
+        <option>$25k–$50k</option>
+        <option>$50k–$100k</option>
+        <option>$100k–$250k</option>
+        <option>$250k+</option>
+      </select></div>
+    <div class="field"><label>How did they find us?</label>
+      <input type="text" name="referral_source" placeholder="Google, referral, repeat client…"></div>
+  </div>
+
+  <div id="progress" class="progress">
+    <div class="label" id="progress-label">Uploading…</div>
+    <div class="bar"><div class="bar-fill" id="progress-bar"></div></div>
+  </div>
+
+  <div id="success" class="success">
+    <div class="check">✓</div>
+    <h2>Walkthrough submitted</h2>
+    <p>The estimate is being generated.</p>
+    <p>You'll receive a review email within a few minutes.</p>
+  </div>
+
+  <div class="submit-bar" id="submit-bar">
+    <button type="submit" class="btn-submit" id="submit-btn">Generate Estimate</button>
+  </div>
+</form>
+
+<script>
+(function(){
+const WEBHOOK_URL = "https://build.twin.so/triggers/e91b8f1f-f189-403d-8d98-344c8ad0a37a/webhook";
+const CATBOX_URL  = "https://catbox.moe/user/api.php";
+
+const form = document.getElementById("walkthrough");
+const errEl = document.getElementById("error");
+const progEl = document.getElementById("progress");
+const progLabel = document.getElementById("progress-label");
+const progBar = document.getElementById("progress-bar");
+const successEl = document.getElementById("success");
+const submitBar = document.getElementById("submit-bar");
+const submitBtn = document.getElementById("submit-btn");
+
+// Voice memo state
+let voiceFile = null;
+const voiceInput = document.querySelector("input[name=voice_memo]");
+const voiceText = document.getElementById("voice-text");
+const voiceList = document.getElementById("voice-list");
+voiceInput.addEventListener("change", e => {
+  voiceFile = e.target.files[0] || null;
+  voiceList.innerHTML = "";
+  if (voiceFile) {
+    voiceText.textContent = "Replace voice memo";
+    const row = document.createElement("div");
+    row.className = "file-item";
+    const kb = (voiceFile.size/1024).toFixed(0);
+    row.innerHTML = '<span class="name">'+escapeHTML(voiceFile.name)+' ('+kb+' KB)</span><button type="button" class="remove">×</button>';
+    row.querySelector(".remove").onclick = () => { voiceFile = null; voiceInput.value=""; voiceList.innerHTML=""; voiceText.textContent = "Record or upload voice memo"; };
+    voiceList.appendChild(row);
+  }
+});
+
+// Photos state
+let photos = [];
+const photoInput = document.querySelector("input[name=photos]");
+const photoText = document.getElementById("photo-text");
+const photoList = document.getElementById("photo-list");
+photoInput.addEventListener("change", e => {
+  for (const f of e.target.files) photos.push(f);
+  photoInput.value = "";
+  renderPhotos();
+});
+function renderPhotos() {
+  photoList.innerHTML = "";
+  photoText.textContent = photos.length ? "Add more photos ("+photos.length+" added)" : "Add photos of work area";
+  photos.forEach((f,idx) => {
+    const row = document.createElement("div");
+    row.className = "file-item";
+    const kb = (f.size/1024).toFixed(0);
+    row.innerHTML = '<span class="name">'+escapeHTML(f.name)+' ('+kb+' KB)</span><button type="button" class="remove" data-idx="'+idx+'">×</button>';
+    row.querySelector(".remove").onclick = () => { photos.splice(idx,1); renderPhotos(); };
+    photoList.appendChild(row);
+  });
+}
+
+document.getElementById("toggle-optional").onclick = function(){
+  const el = document.getElementById("optional-fields");
+  const isOpen = el.classList.toggle("active");
+  this.textContent = (isOpen ? "▾" : "▸")+" Optional details (start date, budget, referral)";
+};
+
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+function setProgress(label, pct) {
+  progEl.classList.add("active");
+  progLabel.textContent = label;
+  progBar.style.width = Math.round(pct)+"%";
+}
+
+async function uploadToCatbox(file) {
+  const fd = new FormData();
+  fd.append("reqtype", "fileupload");
+  fd.append("fileToUpload", file, file.name);
+  const res = await fetch(CATBOX_URL, { method:"POST", body: fd });
+  if (!res.ok) throw new Error("Upload failed: "+res.status);
+  const url = (await res.text()).trim();
+  if (!url.startsWith("http")) throw new Error("Upload rejected: "+url);
+  return url;
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  errEl.classList.remove("active");
+
+  // Validate required
+  const fd = new FormData(form);
+  const required = ["homeowner_name","homeowner_email","homeowner_phone","property_address","project_type"];
+  for (const k of required) {
+    if (!String(fd.get(k)||"").trim()) {
+      errEl.textContent = "Please fill in all required fields (marked *).";
+      errEl.classList.add("active");
+      window.scrollTo({top:0,behavior:"smooth"});
+      return;
+    }
+  }
+  if (!voiceFile && photos.length === 0) {
+    errEl.textContent = "Please add a voice memo or at least one photo.";
+    errEl.classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Uploading…";
+  submitBar.style.display = "none";
+
+  try {
+    const totalFiles = (voiceFile ? 1 : 0) + photos.length;
+    let done = 0;
+    const uploads = {};
+
+    if (voiceFile) {
+      setProgress("Uploading voice memo ("+(done+1)+"/"+totalFiles+")…", (done/totalFiles)*100);
+      uploads.voice_memo_url = await uploadToCatbox(voiceFile);
+      uploads.voice_memo_filename = voiceFile.name;
+      uploads.voice_memo_mime = voiceFile.type;
+      done++;
+    }
+    uploads.photo_urls = [];
+    uploads.photo_filenames = [];
+    for (let i=0;i<photos.length;i++) {
+      setProgress("Uploading photo "+(i+1)+"/"+photos.length+"…", (done/totalFiles)*100);
+      const u = await uploadToCatbox(photos[i]);
+      uploads.photo_urls.push(u);
+      uploads.photo_filenames.push(photos[i].name);
+      done++;
+    }
+
+    setProgress("Submitting walkthrough…", 98);
+
+    const payload = {
+      homeowner_name: fd.get("homeowner_name").trim(),
+      homeowner_email: fd.get("homeowner_email").trim(),
+      homeowner_phone: fd.get("homeowner_phone").trim(),
+      property_address: fd.get("property_address").trim(),
+      project_type: fd.get("project_type"),
+      desired_start_date: fd.get("desired_start_date") || null,
+      budget_range: fd.get("budget_range") || null,
+      referral_source: fd.get("referral_source") || null,
+      ...uploads,
+      submitted_at: new Date().toISOString(),
+      source: "mobile_walkthrough_form"
+    };
+
+    const res = await fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error("Submit failed: "+res.status);
+
+    setProgress("Done", 100);
+    setTimeout(()=>{
+      progEl.classList.remove("active");
+      successEl.classList.add("active");
+      form.querySelectorAll(".card, .optional-toggle").forEach(el => el.style.display = "none");
+      window.scrollTo({top:0,behavior:"smooth"});
+    }, 400);
+  } catch (err) {
+    console.error(err);
+    errEl.textContent = "Submission failed: "+err.message+". Please try again.";
+    errEl.classList.add("active");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Generate Estimate";
+    submitBar.style.display = "";
+    progEl.classList.remove("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+});
+})();
+</script>
+</body>
+</html>
